@@ -1,0 +1,8 @@
+<% @user.each do |f| %>
+<div>
+  <%= image_tag f.get_profile_image %>
+  <p>投稿ユーザー画像：<%= image_tag @user.get_profile_image(100,100) %></p>
+  <p>ショップ名：<%= book.title %></p>
+  <p>説明：<%= book.body %></p>
+</div>
+<% end %>
