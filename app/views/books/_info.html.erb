@@ -1,6 +1,6 @@
 <div class="col-md-3">
       <h2>User info</h2>
-      <%= image_tag @user.get_profile_image %>
+      <%= image_tag%>
       <table class="table">
         <tbody>
           <tr>
@@ -14,10 +14,10 @@
         </tbody>
       </table>
       <div class="row">
-        <%= link_to "btn btn-outline-secondary btn-block edit_user_12530", edit_user_path(current_user) %>
+        <%= link_to "btn btn-outline-secondary btn-block edit_user_12530", edit_user_path(@user.id) %>
       </div>
       <h2 class="mt-3">New book</h2>
-      <%= form_with model: @book do |f| %>
+      <%= form_with model: @booker do |f| %>
         <div class="form-group">
           <label for="book_title">Title</label>
           <%= f.text_field :title %>
