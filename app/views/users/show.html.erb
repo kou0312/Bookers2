@@ -4,7 +4,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'books/info',booker:@booker,user:@user %>
+      <%= render 'books/list',userd:@book,users:@user,booker:@booker %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -20,7 +20,9 @@
         <tbody>
           <% @books.each do |f| %>
             <tr>
-              <td><%= image_tag @book.get_profile_image, size:"100x100" %></td>
+              <td>
+                <%= link_to image_tag(@book.get_profile_image, size:"100x100") %>
+              </td>
               <td>
               <%= link_to book_path(f.id) do %>
                 <%= f.title %>

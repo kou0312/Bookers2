@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'info',booker:@booker,user:@user %>
+      <%= render 'books/list',userd:@userd,users:@user,booker:@booker %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
@@ -12,9 +12,9 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to user_path(@book.user_id) do %>
-                <%= image_tag @book.user.get_profile_image %><br>
-                <%= @book.user.name %>
+              <%= link_to user_path(@userd.id) do %>
+                <%= image_tag @userd.get_profile_image, size:"100x100" %><br>
+                <%= @userd.name %>
               <% end %>
             </td>
             <td>
@@ -33,7 +33,7 @@
             <td>
               <% if @book.user == current_user %>
                 <%= link_to book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" }, class: 'btn btn-sm btn-danger destroy_book_9753' do %>
-                  Dedtroy
+                  Destroy
                 <% end %>
               <% end %>
             </td>

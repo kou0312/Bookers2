@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :correct_user, only: [:edit, :update]
+
   def show
     @booker = Book.new
     @user = current_user
@@ -20,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "You have updated user successfully."
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user)
     else
       render :edit
     end
@@ -34,9 +37,8 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    if current_user != @user
-      redirect_to user_path(@user)
-    end
+    @users = current_user
+    redirect_to user_path(@users) unless @user == current_user
   end
 
 end

@@ -21,7 +21,11 @@
           <tr>
             <td><%= image_tag f.get_profile_image, size:"100x100" %></td>
             <td><%= f.name %></td>
-            <td><%= link_to 'show', user_path(f.id) %></td>
+            <td>
+              <%= link_to user_path(f.id) do %>
+              Show
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
