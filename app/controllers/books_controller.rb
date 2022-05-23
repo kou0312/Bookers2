@@ -5,9 +5,9 @@ class BooksController < ApplicationController
   def create
     @booker = Book.new(book_params)
     @booker.user_id = current_user.id
-    if @book.save
+    if @booker.save
       flash[:notice]="You have updated user successfully."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@booker.id)
     else
       @books =Book.all
       @user = current_user
@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   end
   def show
     @booker = Book.new
+    @user = current_user
     @book = Book.find(params[:id])
   end
   def edit
